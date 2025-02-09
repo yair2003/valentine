@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Gemma my lov ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            padding: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        img {
+            width: 250px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: #ff4d4d;
+        }
+        .titulo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384;
+            font-family: 'Arial', cursive;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #btnSi {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        #btnNo {
+            background-color: #d9d9d9;
+            color: black;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            opacity: 0.7;
+            animation: fall 2s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="titulo">Hola hermosa, me preguntaba si...</div>
+    <img src="foto.jpg" alt="Nosotros">
+    <h1>¿Quieres ser mi San Valentín? 💖</h1>
+    <div class="btn-container">
+        <button id="btnSi" onclick="mostrarMensaje()">Sí</button>
+        <button id="btnNo" onclick="agrandarSi()">No</button>
+    </div>
+
+    <script>
+        let tamano = 18;
+        function agrandarSi() {
+            tamano += 10;
+            document.getElementById("btnSi").style.fontSize = tamano + "px";
+        }
+        function mostrarMensaje() {
+            document.body.innerHTML = "<h1>¡Sabía que dirías que SÍ! Te amooo mucho 💕</h1><p>Queda reservado tu día 14 de febrero para una salida conmigo (tu novio) en un lugar bonito como tú. ❤️</p><img src='https://media.tenor.com/bXfH1p5lssUAAAAj/vida-amor.gif' alt='Amor' width=800px'>";
+            lanzarConfeti();
+        }
+        function lanzarConfeti() {
+            for (let i = 0; i < 100; i++) {
+                let confeti = document.createElement("div");
+                confeti.className = "confetti";
+                confeti.style.left = Math.random() * window.innerWidth + "px";
+                confeti.style.top = "-10px";
+                confeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(confeti);
+                setTimeout(() => confeti.remove(), 5000);
+            }
+        }
+    </script>
+</body>
+</html>
